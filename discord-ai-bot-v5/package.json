@@ -1,0 +1,13 @@
+{
+  "name": "discord-ai-bot",
+  "version": "5.0.0",
+  "description": "بوت ديسكورد: يحل لعبة الاعلام ويكتب كلمات اسرع ويسولف بالـ AI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dry": "DRY_RUN=1 node index.js",
+    "test": "node test/run.js"
+  },
+  "dependencies": {},
+  "engines": { "node": ">=20.0.0" }
+}
