@@ -64,12 +64,12 @@ function loadConfig(env = process.env) {
     startCommand: has(env.GAME_START_COMMAND) ? env.GAME_START_COMMAND.trim() : `${prefix}${gameName}`,
     gameBotIds: list(env.GAME_BOT_IDS),
     autoStart: bool(env.AUTO_START, true),
-    autoStartIntervalMs: num(env.AUTO_START_INTERVAL_SEC, 60) * 1000,
+    autoStartIntervalMs: num(env.AUTO_START_INTERVAL_SEC, 18) * 1000,  // تم تغييره من 60 ثانية إلى 18 ثانية
     gameIdleMs: num(env.GAME_IDLE_SEC, 45) * 1000,
 
     chatEnabled: bool(env.CHAT_ENABLED, true),
-    chatReplyChance: Math.min(1, Math.max(0, num(env.CHAT_REPLY_CHANCE, 0.6))),
-    chatCooldownMs: num(env.CHAT_COOLDOWN_SEC, 6) * 1000,
+    chatReplyChance: Math.min(1, Math.max(0, num(env.CHAT_REPLY_CHANCE, 0.75))),  // زيادة من 0.6 إلى 0.75 (أكثر تحدث)
+    chatCooldownMs: num(env.CHAT_COOLDOWN_SEC, 3) * 1000,  // تقليل من 6 ثوان إلى 3 ثوان (يرد أسرع)
     historySize: num(env.HISTORY_SIZE, 16),
 
     pollMs: num(env.POLL_INTERVAL_MS, 1500),
@@ -77,7 +77,7 @@ function loadConfig(env = process.env) {
     maxMessageAgeMs: num(env.MAX_MESSAGE_AGE_SEC, 20) * 1000,
     flagDelay: range(env.FLAG_DELAY_MS, [300, 700]),
     wordDelay: range(env.WORD_DELAY_MS, [200, 500]),
-    chatDelay: range(env.CHAT_DELAY_MS, [1000, 3000]),
+    chatDelay: range(env.CHAT_DELAY_MS, [800, 2000]),  // تقليل التأخير قليلاً (من 1000-3000 إلى 800-2000)
     maxSendsPerMin: num(env.MAX_SENDS_PER_MIN, 40),
 
     controlPrefix: has(env.CONTROL_PREFIX) ? env.CONTROL_PREFIX.trim() : "!bot",
